@@ -27,4 +27,4 @@ Feel free to reach out!
 
 ---
 
-Feel free to explore! 🚀
+Feel free to explore! 🌐✨
