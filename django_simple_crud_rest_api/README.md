@@ -24,6 +24,7 @@ cd django_simple_crud_rest_api
 ```bash
 ./docker.sh up
 ```
+This command will build the Docker containers and start the application. The API will be available at `http://localhost:8000/api/courses/`.
 
 ## Docker Commands
 | Command | Description |
@@ -36,8 +37,8 @@ cd django_simple_crud_rest_api
 ## List of available routes
 | Route | Method | Description | Required Fields |
 |-------|---------|-------------|-----------------|
-| `{{BASE_URL}}/api/courses/` | GET | List all courses | None |
-| `{{BASE_URL}}/api/courses/` | POST | Create new course | title, summary |
-| `{{BASE_URL}}/api/courses/<id>/` | GET | Get course details | None |
-| `{{BASE_URL}}/api/courses/<id>/` | PATCH | Update course | title, summary |
-| `{{BASE_URL}}/api/courses/<id>/` | DELETE | Delete course | None |
+| `http://localhost:8000/api/courses/` | GET | List all courses | None |
+| `http://localhost:8000/api/courses/` | POST | Create new course | title, summary |
+| `http://localhost:8000/api/courses/<id>/` | GET | Get course details | None |
+| `http://localhost:8000/api/courses/<id>/` | PATCH | Update course | title, summary |
+| `http://localhost:8000/api/courses/<id>/` | DELETE | Delete course | None |
