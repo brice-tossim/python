@@ -16,7 +16,7 @@ This documentation provides instructions for setting up and running the project.
 ## Setup
 Clone the repository:
 ```bash
-git clone https://github.com/bricioo/python.git
+git clone https://github.com/brice-tossim/python.git
 cd django_simple_crud_rest_api
 ```
 
