@@ -16,8 +16,8 @@ This documentation provides instructions for setting up and running the project.
 ## Setup
 Clone the repository:
 ```bash
-git clone https://github.com/bricioo/python.git
-cd 1_django_simple_crud_rest_api
+git clone https://github.com/brice-tossim/python.git
+cd python/django/without-ai-llm/1_simple_crud_rest_api
 ```
 
 ## Running the Project
