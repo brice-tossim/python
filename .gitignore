@@ -1,1 +1,11 @@
-.DS_Store
+**/*.DS_Store
+**/*/.vscode/
+**/*/.venv/
+**/*/db.sqlite3
+**/*/__pycache__/
+**/*/.mypy_cache/
+**/*/.pytest_cache/
+**/*/htmlcov/
+**/*/.coverage
+**/*/.DS_Store
+**/*/.env
