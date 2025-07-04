@@ -14,6 +14,7 @@ cfgv==3.4.0
 charset-normalizer==3.4.2
 click==8.2.1
 colorama==0.4.6
+coverage==7.9.2
 dataclasses-json==0.6.7
 Deprecated==1.2.18
 dirtyjson==1.0.8
@@ -33,6 +34,7 @@ httpcore==1.0.9
 httpx==0.28.1
 identify==2.6.12
 idna==3.10
+iniconfig==2.1.0
 Jinja2==3.1.6
 jiter==0.10.0
 joblib==1.5.1
@@ -71,13 +73,18 @@ pandas==2.2.3
 pathspec==0.12.1
 pillow==11.2.1
 platformdirs==4.3.8
+pluggy==1.6.0
 pre_commit==4.2.0
 propcache==0.3.2
 pycodestyle==2.14.0
 pydantic==2.11.7
 pydantic_core==2.33.2
 pyflakes==3.4.0
+Pygments==2.19.2
 pypdf==5.6.1
+pytest==8.4.1
+pytest-cov==6.2.1
+pytest-django==4.11.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.1.1
 pytz==2025.2
