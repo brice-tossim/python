@@ -1,6 +1,7 @@
 name: Django CI for Wikipedia Chat Assistant project
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - "django/with-ai-llm/1_wikipedia_chat_assistant_using_llamaindex/**"
