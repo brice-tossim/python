@@ -1,0 +1,33 @@
+name: Django CI for Wikipedia Chat Assistant project
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "django/with-ai-llm/1_wikipedia_chat_assistant_using_llamaindex/**"
+  pull_request:
+    paths:
+      - "django/with-ai-llm/1_wikipedia_chat_assistant_using_llamaindex/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r django/with-ai-llm/1_wikipedia_chat_assistant_using_llamaindex/requirements.txt
+
+      - name: Run tests
+        run: |
+          cd django/with-ai-llm/1_wikipedia_chat_assistant_using_llamaindex
+          pytest
