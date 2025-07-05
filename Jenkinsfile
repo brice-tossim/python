@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage("Build") {
+        stage("Run tests") {
             steps {
                 echo "Running Django tests..."
                 // Use your existing test script
