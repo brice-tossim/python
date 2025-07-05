@@ -34,8 +34,30 @@ class WikipediaContentService:
             logger.info(f"Fetching content from Wikipedia for {len(titles)} pages.")
 
             # Fetch the content from Wikipedia (disable auto-suggestion to avoid errors -- OpenAI already returns the best match)
+            titles = self.validate_titles(titles)
             documents = self.reader.load_data(pages=titles, auto_suggest=False)
             return documents
         except Exception as e:
             logger.error(f"Error fetching content from Wikipedia: {e}")
+            return []
+
+    @staticmethod
+    def validate_titles(titles: List[str]) -> List[str]:
+        """
+        Validate the given Wikipedia page titles to ensure they are valid.
+
+        Args:
+            titles (List[str]): List of Wikipedia page titles to correct.
+
+        Returns:
+            List[str]: List of corrected Wikipedia page titles.
+        """
+        try:
+            logger.info(f"Correcting Wikipedia page titles for {len(titles)} pages.")
+
+            # Correct Wikipedia page titles using the Wikipedia API
+            corrected_titles = [wikipedia.search(t, results=1) for t in titles]
+            return corrected_titles
+        except Exception as e:
+            logger.error(f"Error correcting Wikipedia page titles: {e}")
             return []

@@ -47,7 +47,7 @@ stop() {
 # Run tests
 run_tests() {
     print_status "Running tests..."
-    docker-compose run --rm api pytest
+    docker-compose build && docker-compose run --rm wikipedia-chat-assistant pytest
 }
 
 # Main script

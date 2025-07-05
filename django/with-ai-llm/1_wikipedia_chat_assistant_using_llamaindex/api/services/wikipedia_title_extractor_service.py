@@ -1,9 +1,13 @@
+import logging
 from typing import List
 
+from llama_index.core.program import FunctionCallingProgram
 from llama_index.program.openai import OpenAIPydanticProgram
 
 from api.config.llm_config import LLMConfig
 from api.schemas.wikipedia_title_extraction import WikipediaTitleExtraction
+
+logger = logging.getLogger(__name__)
 
 
 class WikipediaTitleExtractorService:
@@ -22,16 +26,19 @@ class WikipediaTitleExtractorService:
             query (str): User query to extract titles from
 
         Returns:
-            WikipediaTitleExtraction: Extracted titles
+            List[str]: List of extracted Wikipedia titles
         """
         result = self._program(query=query)
-        if isinstance(result, WikipediaTitleExtraction):
-            return result.titles
-
-        return []
+        try:
+            if isinstance(result, dict) and 'titles' in result:
+                return WikipediaTitleExtraction(**result).titles
+            return []
+        except Exception as e:
+            logger.error(f"Error extracting Wikipedia titles: {e}")
+            return []
 
     @staticmethod
-    def _create_extraction_program() -> OpenAIPydanticProgram:
+    def _create_extraction_program() -> FunctionCallingProgram:
         """
         Create a program to extract titles from user input using OpenAI
 
@@ -69,8 +76,9 @@ class WikipediaTitleExtractorService:
         """
         llm = LLMConfig.get_llm()
 
-        return OpenAIPydanticProgram.from_defaults(
+        return FunctionCallingProgram.from_defaults(
             output_cls=WikipediaTitleExtraction,
             prompt_template_str=prompt_template_str,
             llm=llm,
+            verbose=True
         )
